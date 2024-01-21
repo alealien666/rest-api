@@ -1,0 +1,48 @@
+:root {
+    --soklat: rgba(0, 0, 0, 0.8);
+    --putih: whitesmoke;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+.dark {
+    background-color: var(--soklat);
+    color: var(--putih);
+}
+
+.navbar {
+    width: 100%;
+    background-color: var(--soklat);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--putih);
+    padding: 1rem;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    width: 18.7rem;
+}
+
+li a {
+    text-decoration: none;
+    color: var(--putih);
+}
+
+.wrap {
+    display: flex;
+    width: 9rem;
+    justify-content: space-between;
+}
+
+.active {
+    text-shadow: 0px 0px 10px red, 0px 0px 10px blue, 0px 0px 10px white;
+}

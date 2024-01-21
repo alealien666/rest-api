@@ -1,4 +1,5 @@
 {{-- @dd($users) --}}
+@include('navbar')
 <!doctype html>
 <html lang="en">
 
@@ -41,7 +42,7 @@
                                 data-bs-target="#editModal{{ $user['id_user'] }}">
                                 Edit
                             </button>
-                            <form action="{{ route('delete', ['id' => $user['id_user']]) }}" method="post"
+                            <form action="{{ route('delete', ['id_user' => $user['id_user']]) }}" method="post"
                                 onclick="confirm('yakiiin?')" class="ms-1">
                                 @csrf
                                 @method('DELETE')
@@ -71,8 +72,10 @@
                     <form action="{{ route('post') }}" method="post">
                         @csrf
                         <div class="modal-body">
-                            <input type="text" name="username" id="user">
-                            <input type="text" name="password" id="user">
+                            <label for="user" class="form-label">Username:</label>
+                            <input type="text" name="username" id="user" class="form-control">
+                            <label for="pw" class="form-label">Password:</label>
+                            <input type="text" name="password" id="pw" class="form-control">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -99,7 +102,7 @@
                             @method('PUT')
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="editUsername" class="form-label">Username</label>
+                                    <label for="editUsername" class="form-label">Username:</label>
                                     <input type="text" class="form-control" id="editUsername" name="username"
                                         value="{{ $user['username'] }}" required>
                                 </div>

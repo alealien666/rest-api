@@ -12,7 +12,7 @@ class PuskesmasController extends Controller
      * Display a listing of the resource.
      */
     private $apiUrl = 'http://103.150.93.112:8021/api/user';
-    private $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlVTMjQwMTEzMSIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJpc3MiOiJteS1hcHAiLCJleHAiOjE3MDU3NzYyNTYsImlhdCI6MTcwNTc3MjY1Nn0.loBaHnQU9PCe7OIFE-Do8jDR5nzeF3w1Tz8fElm20s0';
+    protected $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlVTMjQwMTEzMSIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJpc3MiOiJteS1hcHAiLCJleHAiOjE3MDU4NTkxNzMsImlhdCI6MTcwNTg1NTU3M30.Ib7CQ1hjaUrIXBXkIG4u9_yXSA19i3TL2VMuO0aMAQM';
     public function index()
     {
         // reqres . in / api / users
@@ -34,7 +34,7 @@ class PuskesmasController extends Controller
 
         return redirect()->back()->with('success', 'User added successfully.');
     }
-    public function update(Request $request, Puskesmas $puskesmas, $id)
+    public function update(Request $request, $id)
     {
         $response = Http::withToken($this->token)
             ->put("{$this->apiUrl}/{$id}", [
@@ -43,10 +43,12 @@ class PuskesmasController extends Controller
 
         return redirect()->back()->with('success', 'berhasil cooy');
     }
-    public function destroy(Puskesmas $puskesmas, $id)
+    public function destroy(Puskesmas $puskesmas, $id_user)
     {
-        $response = Http::withToken($this->token)->delete("{$this->apiUrl}/{$id}");
-        dd($response->status());
+        $response = Http::withToken($this->token)->delete($this->apiUrl, [
+            'id_user' => $id_user
+        ]);
+        dd($response->json());
 
         return redirect()->back()->with('success', 'berhasil menghapus cooy');
     }

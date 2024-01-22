@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <h1>Negara Api</h1>
         <div class="navbar-nav">
             <ul>
-                <li><a class="link" href="/index">User</a></li>
+                <li><a class="link active" href="/index">User</a></li>
                 <li><a class="link" href="/pitik">Type Tools</a></li>
                 <li><a class="link" href="/tools">Tools</a></li>
                 <li><a class="link" href="#">History</a></li>
@@ -26,7 +26,7 @@
         </div>
     </nav>
 
-    <script src="js/script.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>

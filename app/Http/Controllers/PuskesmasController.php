@@ -12,7 +12,7 @@ class PuskesmasController extends Controller
      * Display a listing of the resource.
      */
     private $apiUrl = 'http://103.150.93.112:8021/api/user';
-    protected $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlVTMjQwMTEzMSIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJpc3MiOiJteS1hcHAiLCJleHAiOjE3MDU4NTkxNzMsImlhdCI6MTcwNTg1NTU3M30.Ib7CQ1hjaUrIXBXkIG4u9_yXSA19i3TL2VMuO0aMAQM';
+    protected $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlVTMjQwMTEzMSIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJpc3MiOiJteS1hcHAiLCJleHAiOjE3MDU5MTQ1MTQsImlhdCI6MTcwNTkxMDkxNH0.G_DSS8uSQpHbl09E9zdAh6EIZAThtGTrbqwiCXNZrD8';
     public function index()
     {
         // reqres . in / api / users
@@ -43,7 +43,7 @@ class PuskesmasController extends Controller
 
         return redirect()->back()->with('success', 'berhasil cooy');
     }
-    public function destroy(Puskesmas $puskesmas, $id_user)
+    public function destroy($id_user)
     {
         $response = Http::withToken($this->token)->delete($this->apiUrl, [
             'id_user' => $id_user

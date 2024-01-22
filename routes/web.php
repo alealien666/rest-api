@@ -33,3 +33,6 @@ Route::delete('delete/{idTypeTool}', [typeToolController::class, 'delete'])->nam
 
 // tools
 Route::get('/tools', [ToolsController::class, 'index']);
+Route::post('/tools/insert', [ToolsController::class, 'store'])->name('tambah');
+Route::put('/tools/update/{id}', [ToolsController::class, 'update'])->name('edit');
+Route::delete('/tools/delete/{id}', [ToolsController::class, 'destroy'])->name('destroy');
